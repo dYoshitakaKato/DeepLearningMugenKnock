@@ -1,7 +1,31 @@
-# Q. 画像認識モデル編
+# Q. 画像認識編
 
 ここではCNNの有名モデルを自分の手で実装していきます。フレームワークは自由だが、**とりあえずPyTorch, Tensorflow, Keras, Chainer全部で実装してください。**
 ネットワークを作ったら、学習率やイテレーションを変えて、テストデータセット *../Dataset/test/images* でテストしてみてください。
+
+## API
+
+各有名モデルのAPIを使ってみましょう。
+
+pytorchは 
+
+```bash
+$ pip install cnn_finetune
+```
+をして、ライブラリを追加しなきゃいけません。
+
+| FW | function | | FW | function |
+|:---:|:---:|:---:|:---:|:---:|
+| pytorch | cnn_finetune.make_model  | | Keras |  |
+| TensorFlow |  | | Chainer |  |
+
+pytorchの参考サイト >> https://github.com/creafz/pytorch-cnn-finetune
+
+答え
+- Pytorch [answers/api_pytorch.py](answers/api_pytorch.py)
+- Tensorflow [answers/lenet_tensorflow_layers.py](answers/lenet_tensorflow_layers.py)
+- Keras [answers/lenet_keras.py](answers/lenet_keras.py)
+- chainer [answers/lenet_chainer.py](answers/lenet_chainer.py)
 
 ## Q. LeNet
 
@@ -25,10 +49,10 @@
 
 
 答え
-- Pytorch [answers/lenet_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/lenet_pytorch.py)
-- Tensorflow [answers/lenet_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/lenet_tensorflow_layers.py)
-- Keras [answers/lenet_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/lenet_keras.py)
-- chainer [answers/lenet_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/lenet_chainer.py)
+- Pytorch [answers/lenet_pytorch.py](answers/lenet_pytorch.py)
+- Tensorflow [answers/lenet_tensorflow_layers.py](answers/lenet_tensorflow_layers.py)
+- Keras [answers/lenet_keras.py](answers/lenet_keras.py)
+- chainer [answers/lenet_chainer.py](answers/lenet_chainer.py)
 
 ## Q. AlexNet
 
@@ -37,10 +61,11 @@
 ディープラーニングを流行らせた張本人モデル。ImageNetという画像認識のコンペILSVRC2012で圧倒的一位で優勝したことから現在のディープラーニングブームが起こりました。これを実装してくさい。
 AlexNetでは*Local Response Normalization* という特別な正規化Layerがあります。
 
-| FW | function | FW | function |
-|:---:|:---:|:---:|:---:|
-| PyTorch | torch.nn.modules.normalization.LocalResponseNorm() | Keras | - |
-| TensorFlow | tf.nn.local_response_normalization() | Chainer | chainer.functions.local_response_normalization() |
+| FW | function | | FW | function |
+|:---:|:---:|:---:|:---:|:---:|
+| PyTorch | torch.nn.modules.normalization.LocalResponseNorm() | | Keras | - |
+| TensorFlow | tf.nn.local_response_normalization() | | Chainer | chainer.functions.local_response_normalization() |
+
 LRNは効果が薄いことから最近ではほとんど使われてません。こういうのもあったんだなあ程度に覚えておくといいと思います。
 
 ただし学習データの枚数が少ないので学習が進まないので、精度を上げたいときは自分で学習データを増やすか、パラメータ数を変えるなどの工夫が必要なので注意。
@@ -64,10 +89,10 @@ LRNは効果が薄いことから最近ではほとんど使われてません�
 
 
 答え
-- Pytorch [answers/alexnet_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/alexnet_pytorch.py)
-- Tensorflow [answers/alexnet_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/alexnet_tensorflow_layers.py)
-- Keras [answers/alexnet_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/alexnet_keras.py)
-- chainer [answers/alexnet_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/alexnet_chainer.py)
+- Pytorch [answers/alexnet_pytorch.py](answers/alexnet_pytorch.py)
+- Tensorflow [answers/alexnet_tensorflow_layers.py](answers/alexnet_tensorflow_layers.py)
+- Keras [answers/alexnet_keras.py](answers/alexnet_keras.py)
+- chainer [answers/alexnet_chainer.py](answers/alexnet_chainer.py)
 
 
 ## Q. ZFNet
@@ -97,10 +122,10 @@ Alexnetの最初のconvlutionを7x7のカーネルにして、ストライドを
 | MultiLayerPerceptron | 2 (クラス) | - | - | - | - | Softmax|
 
 答え
-- Pytorch [answers/zfnet_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/zfnet_pytorch.py)
-- Tensorflow [answers/zfnet_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/zfnet_tensorflow_layers.py)
-- Keras [answers/zfnet_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/zfnet_keras.py)
-- chainer [answers/zfnet_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/zfnet_chainer.py)
+- Pytorch [answers/zfnet_pytorch.py](answers/zfnet_pytorch.py)
+- Tensorflow [answers/zfnet_tensorflow_layers.py](answers/zfnet_tensorflow_layers.py)
+- Keras [answers/zfnet_keras.py](answers/zfnet_keras.py)
+- chainer [answers/zfnet_chainer.py](answers/zfnet_chainer.py)
 
 ## Q. Global Average Pooling
 
@@ -124,10 +149,10 @@ GAPはConvolutionによる生成される特徴マップの内の１チャネル
 | TensorFlow | tf.reduce_mean()を２回適用 | Chainer | chainer.functions.average() |
 
 答え
-- Pytorch [answers/gap_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/gap_pytorch.py)
-- Tensorflow [answers/gap_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/gap_tensorflow_layers.py)
-- Keras [answers/gap_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/gap_keras.py)
-- chainer [answers/gap_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/gap_chainer.py)
+- Pytorch [answers/gap_pytorch.py](answers/gap_pytorch.py)
+- Tensorflow [answers/gap_tensorflow_layers.py](answers/gap_tensorflow_layers.py)
+- Keras [answers/gap_keras.py](answers/gap_keras.py)
+- chainer [answers/gap_chainer.py](answers/gap_chainer.py)
 
 
 ## Q. Network in network
@@ -155,10 +180,10 @@ Convolution | 3 x 3 | 192 | 1 | 1 | ReLU |
 | GAP | | | | | Softmax |
 
 答え
-- Pytorch [answers/nin_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/nin_pytorch.py)
-- Tensorflow [answers/nin_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/nin_tensorflow_layers.py)
-- Keras [answers/nin_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg16_keras.py)
-- chainer [answers/nin_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/nin_chainer.py)
+- Pytorch [answers/nin_pytorch.py](answers/nin_pytorch.py)
+- Tensorflow [answers/nin_tensorflow_layers.py](answers/nin_tensorflow_layers.py)
+- Keras [answers/nin_keras.py](answers/vgg16_keras.py)
+- chainer [answers/nin_chainer.py](answers/nin_chainer.py)
 
 ## Q. VGG16
 
@@ -190,10 +215,10 @@ VGG16とはOxfort大学の研究グループが提案したモデルであり、
 | MultiLayerPerceptron | 2 (クラス) | - | - | - | - | Softmax|
 
 答え
-- Pytorch [answers/vgg16_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg16_pytorch.py)
-- Tensorflow [answers/vgg16_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg16_tensorflow_layers.py)
-- Keras [answers/vgg16_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg16_keras.py)
-- chainer [answers/vgg16_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg16_chainer.py)
+- Pytorch [answers/vgg16_pytorch.py](answers/vgg16_pytorch.py)
+- Tensorflow [answers/vgg16_tensorflow_layers.py](answers/vgg16_tensorflow_layers.py)
+- Keras [answers/vgg16_keras.py](answers/vgg16_keras.py)
+- chainer [answers/vgg16_chainer.py](answers/vgg16_chainer.py)
 
 ## Q. VGG19
 
@@ -228,10 +253,10 @@ VGG19はVGG16にConvolutionが3つ増えたバージョン。こっちよりもV
 | MultiLayerPerceptron | 2 (クラス) | - | - | - | - | Softmax|
 
 答え
-- Pytorch [answers/vgg19_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg19_pytorch.py)
-- Tensorflow [answers/vgg19_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg19_tensorflow_layers.py)
-- Keras [answers/vgg19_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg19_keras.py)
-- chainer [answers/vgg19_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/vgg19_chainer.py)
+- Pytorch [answers/vgg19_pytorch.py](answers/vgg19_pytorch.py)
+- Tensorflow [answers/vgg19_tensorflow_layers.py](answers/vgg19_tensorflow_layers.py)
+- Keras [answers/vgg19_keras.py](answers/vgg19_keras.py)
+- chainer [answers/vgg19_chainer.py](answers/vgg19_chainer.py)
 
 ## Q. モデルの書き方の簡潔化
 
@@ -268,7 +293,7 @@ x = self.conv3(x)
 x = F.max_pool2d(x, 2, stride=2, padding=0)
 ```
 
-サンプル >> [answers/easy_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/easy_pytorch.py)
+サンプル >> [answers/easy_pytorch.py](answers/easy_pytorch.py)
 
 ### Tensorflow
 
@@ -280,7 +305,7 @@ for i in range(3):
 x = tf.layers.max_pooling2d(inputs=x, pool_size=[2, 2], strides=2)
 ```
 
-サンプル >> [answers/easy_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/easy_tensorflow_layers.py)
+サンプル >> [answers/easy_tensorflow_layers.py](answers/easy_tensorflow_layers.py)
 
 ### Keras
 
@@ -292,7 +317,7 @@ for i in range(3):
 x = MaxPooling2D((2, 2), strides=2,  padding='same')(x)
 ```
 
-サンプル >> [answers/easy_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/easy_keras.py)
+サンプル >> [answers/easy_keras.py](answers/easy_keras.py)
 
 ### Chainer
 
@@ -313,9 +338,15 @@ x = self.conv3(x)
 x = F.max_pooling_2d(x, ksize=2, stride=2)
 ```
 
-サンプル >> [answers/easy_chaienr.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/easy_chainer.py)
+サンプル >> [answers/easy_chaienr.py](answers/easy_chainer.py)
 
-## Q. GoogLeNet
+## Q. GoogLeNet-v1
+
+- Pytorch [answers/googlenetv1_pytorch.py](answers/googlenetv1_pytorch.py)
+- Tensorflow [answers/googlenetv1_tensorflow_slim.py](answers/googlenetv1_tensorflow_slim.py)
+- Keras [answers/googlenetv1_keras.py](answers/googlenetv1_keras.py)
+- chainer [answers/bn_chainer.py](answers/bn_chainer.py)
+
 
 ##  Q. Batch Normalization
 
@@ -330,8 +361,97 @@ Batch normalizationとは学習をめちゃくちゃ効率化するための手�
 pytorchでは*torch.nn.BatchNorm2d()*, tensorflowでは*tf.layers.batch_normalization(), tf.layers.BatchNormalization()*, Kerasでは*keras.layers.BatchNormalization()* ,chainerでは*chainer.links.BatchNormalization()* で実装できる。
 
 答え
-- Pytorch [answers/bn_pytorch.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/bn_pytorch.py)
-- Tensorflow [answers/bn_tensorflow_layers.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/bn_tensorflow_layers.py)
-- Keras [answers/bn_keras.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/bn_keras.py)
-- chainer [answers/bn_chainer.py](https://github.com/yoyoyo-yo/DeepLearningMugenKnock/blob/master/Question_model/answers/bn_chainer.py)
+- Pytorch [answers/bn_pytorch.py](answers/bn_pytorch.py)
+- Tensorflow [answers/bn_tensorflow_layers.py](answers/bn_tensorflow_layers.py)
+- Keras [answers/bn_keras.py](answers/bn_keras.py)
+- chainer [answers/bn_chainer.py](answers/bn_chainer.py)
 
+## Q. ResNet
+
+論文 >> https://arxiv.org/abs/1512.03385
+
+Skip connectionによって、Lossのback propagationの効率化を行った。
+
+![](assets/resnet_block.jpg)
+
+
+
+答え
+
+#### Res18
+
+- Pytorch [answers/res18_pytorch.py](answers/res18_pytorch.py)
+- Keras [answers/res18_keras.py](answers/res18_keras.py)
+
+#### Res34
+
+- Pytorch [answers/res34_pytorch.py](answers/res34_pytorch.py)
+- Keras [answers/res34_keras.py](answers/res34_keras.py)
+
+#### Res50
+
+- Pytorch [answers/res50_pytorch.py](answers/res50_pytorch.py)
+- Tensorflow(not good) [answers/res50_tensorflow_slim.py](answers/res50_tensorflow_slim.py)
+- Keras [answers/res50_keras.py](answers/res50_keras.py)
+- chainer(not good) [answers/res50_chainer.py](answers/res50_chainer.py)
+
+#### Res101
+
+- Pytorch [answers/res101_pytorch.py](answers/res101_pytorch.py)
+- Keras [answers/res101_keras.py](answers/res101_keras.py)
+
+#### Res152
+
+- Pytorch [answers/res152_pytorch.py](answers/res152_pytorch.py)
+- Keras [answers/res152_keras.py](answers/res152_keras.py)
+
+## Q. ResNeXt
+
+元論文 >> https://arxiv.org/abs/1611.05431
+
+ResNetのblockを内を細かく分けて、それらの和をとることでネットワーク内にネットワークを複数作成するモジュールを実現している。
+パラメータ数を減らしながらも精度向上を実現した。
+
+![](assets/resnext_block.jpg)
+
+#### ResNeXt50
+
+- Pytorch [answers/resNeXt50_pytorch.py](answers/resNeXt50_pytorch.py)
+- Keras [answers/resNeXt50_keras.py](answers/resNeXt50_keras.py)
+
+#### ResNeXt101
+
+- Pytorch [answers/resNeXt101_pytorch.py](answers/resNeXt101_pytorch.py)
+- Keras [answers/resNeXt101_keras.py](answers/resNeXt101_keras.py)
+
+
+## Q. Xception
+
+元論文 >> https://arxiv.org/abs/1610.02357
+
+- Pytorch [answers/xception_pytorch.py](answers/xception_pytorch.py)
+- Keras [answers/xception_keras.py](answers/xception_keras.py)
+
+## Q. DenseNet
+
+元論文 >> https://arxiv.org/abs/1608.06993
+
+ResNetのshortcut connectionは勾配を直接的に前のLayerに伝えられるけども、shorcut connectionをLayerを通した出力に足して(sum)いるのは情報のフローを妨げる可能性があるらしい。
+
+そこでconcatをするのだが、DenseBLockというconvolutionの塊の全てのLayerをconcatにする。
+
+#### DenseNet121
+
+- Pytorch [answers/DenseNet121_pytorch.py](answers/DenseNet121_pytorch.py)
+
+#### DenseNet169
+
+- Pytorch [answers/DenseNet169_pytorch.py](answers/DenseNet169_pytorch.py)
+
+#### DenseNet201
+
+- Pytorch [answers/DenseNet201_pytorch.py](answers/DenseNet201_pytorch.py)
+
+#### DenseNet264
+
+- Pytorch [answers/DenseNet264_pytorch.py](answers/DenseNet264_pytorch.py)
